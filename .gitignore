@@ -1,3 +1,8 @@
+# Custom
+model.pt
+libtorch
+libtorch-shared-with-deps-latest.zip
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
