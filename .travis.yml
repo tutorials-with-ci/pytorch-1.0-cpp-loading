@@ -4,10 +4,10 @@ python:
   - '3.6'
 
 install:
-  - wget https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
-  - unzip libtorch-shared-with-deps-latest.zip && rm libtorch-shared-with-deps-latest.zip
-  - pip install torch_nightly -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
-  - pip install torchvision
+  - wget -q https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
+  - unzip -q libtorch-shared-with-deps-latest.zip && rm libtorch-shared-with-deps-latest.zip
+  - pip -q install torch_nightly -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
+  - pip -q install torchvision
 
 script:
   - python ./python/export_to_pt_model.py
