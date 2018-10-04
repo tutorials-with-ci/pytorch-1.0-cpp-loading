@@ -6,8 +6,7 @@ python:
 install:
   - wget -q https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
   - unzip -q libtorch-shared-with-deps-latest.zip && rm libtorch-shared-with-deps-latest.zip
-  - pip -q install torch_nightly -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
-  - pip -q install torchvision --no-deps
+  - pip -q install torch_nightly torchvision -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
   - pip freeze
 
 script:
