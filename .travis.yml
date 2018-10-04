@@ -10,6 +10,10 @@ install:
   - pip install pillow
   - pip install torchvision --no-deps
   - pip freeze
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update
+  - sudo apt-get install gcc-5 g++-5
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
 
 script:
   - python ./python/export_to_pt_model.py
