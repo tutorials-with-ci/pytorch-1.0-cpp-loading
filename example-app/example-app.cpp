@@ -13,9 +13,7 @@ int main(int argc, const char* argv[]) {
   }
 
   // Deserialize the ScriptModule from a file using torch::jit::load().
-  std::shared_ptr<torch::jit::script::Module> module = torch::jit::load(argv[1]);
-
-  assert(module != nullptr);
+  auto module = torch::jit::load(argv[1]);
   std::cout << "ok\n";
 
   // Create a vector of inputs.
@@ -23,7 +21,6 @@ int main(int argc, const char* argv[]) {
   inputs.push_back(torch::ones({1, 3, 224, 224}));
 
   // Execute the model and turn its output into a tensor.
-  auto output = module->forward(inputs).toTensor();
-
+  auto output = module.forward(inputs).toTensor();
   std::cout << output.slice(/*dim=*/1, /*start=*/0, /*end=*/5) << '\n';
 }

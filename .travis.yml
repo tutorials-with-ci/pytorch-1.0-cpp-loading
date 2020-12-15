@@ -1,19 +1,18 @@
 language: python
 
 python:
-  - '3.6'
+  - '3.8'
 
 install:
   - wget -q https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
   - unzip -q libtorch-shared-with-deps-latest.zip && rm libtorch-shared-with-deps-latest.zip
-  - pip -q install torch_nightly -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
+  - pip -q install torch==1.7.1+cpu torchvision==0.8.2+cpu torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
   - pip install pillow
-  - pip install torchvision --no-deps
   - pip freeze
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update
-  - sudo apt-get install gcc-5 g++-5
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+  - sudo apt-get install gcc-7 g++-7
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 
 script:
   - python ./python/export_to_pt_model.py
